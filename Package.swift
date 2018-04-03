@@ -14,7 +14,7 @@ let package = Package(
         .package(url: "https://github.com/vapor/leaf-provider.git", .upToNextMajor(from: "1.1.0")),
     ],
     targets: [
-        .target(name: "App", dependencies: ["Vapor", "FluentProvider", "LeafProvider"],
+        .target(name: "App", dependencies: ["Cocoa", "Vapor", "FluentProvider", "LeafProvider"],
                 exclude: [
                     "Config",
                     "Public",
