@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "Blockchain-Server",
+    pkgConfig: String? = nil,
     products: [
         .library(name: "App", targets: ["App"]),
         .executable(name: "Run", targets: ["Run"])
