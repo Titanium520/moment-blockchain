@@ -4,11 +4,12 @@ import PackageDescription
 
 let package = Package(
     name: "Blockchain-Server",
-    pkgConfig: "",
+    pkgConfig: nil,
     products: [
         .library(name: "App", targets: ["App"]),
         .executable(name: "Run", targets: ["Run"])
     ],
+    providers: nil,
     targets: [
         .target(name: "App", dependencies: ["Vapor", "FluentProvider", "LeafProvider"],
                 exclude: [
