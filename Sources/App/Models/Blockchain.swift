@@ -50,10 +50,10 @@ class Blockchain : Codable  {
         
         var hash = block.key.sha1Hash()
         
-        while(!hash.hasPrefix("00")) {
+        while(!hash.hasPrefix("0")) {
             block.nonce += 1
             hash = block.key.sha1Hash()
-            print(hash)
+            //print(hash)
         }
         
         return hash
