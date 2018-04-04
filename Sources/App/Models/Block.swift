@@ -5,7 +5,7 @@
 //  Created by Jérémie Doche on 03/04/2018.
 //
 
-import Cocoa
+import Foundation
 import Vapor
 
 class Block : Codable  {
