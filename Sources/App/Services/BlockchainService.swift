@@ -13,7 +13,7 @@ class BlockchainService {
     
     init() {
         print(" > Generating Genesis < ")
-        self.blockchain = Blockchain(genesisBlock: Block())
+        //self.blockchain = Blockchain(genesisBlock: Block())
     }
     
     func resolve(completion :@escaping (Blockchain) -> ()) {
