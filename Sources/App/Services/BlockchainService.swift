@@ -12,22 +12,18 @@ class BlockchainService {
     private (set) var blockchain :Blockchain!
     
     init() {
-        print(" > Generating Genesis < ")
-        //self.blockchain = Blockchain(genesisBlock: Block())
+        print(" > Generating Genesis Block < ")
+        self.blockchain = Blockchain(genesisBlock: Block())
     }
     
     func resolve(completion :@escaping (Blockchain) -> ()) {
-        
         let nodes = self.blockchain.nodes
         
         for node in nodes {
-            
             let url = URL(string :"http://\(node.address)/blockchain")!
             
             URLSession.shared.dataTask(with: url) { data, _, _ in
-                
                 if let data = data {
-                    
                     let blockchain = try! JSONDecoder().decode(Blockchain.self, from: data)
                     
                     if self.blockchain.blocks.count > blockchain.blocks.count {
@@ -36,14 +32,9 @@ class BlockchainService {
                         self.blockchain.blocks = blockchain.blocks
                         completion(blockchain)
                     }
-                    
                 }
-                
             }.resume()
-            
-            
         }
-        
     }
     
     func registerNode(_ node :BlockchainNode) {
@@ -51,7 +42,6 @@ class BlockchainService {
     }
     
     func getMinedBlock(transactions :[Transaction]) -> Block {
-        
         let block = self.blockchain.getNextBlock(transactions: transactions)
         self.blockchain.addBlock(block)
         return block
