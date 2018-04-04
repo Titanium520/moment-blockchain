@@ -12,6 +12,7 @@ class BlockchainService {
     private (set) var blockchain :Blockchain!
     
     init() {
+        print(" >Generating Genesis < ")
         self.blockchain = Blockchain(genesisBlock: Block())
     }
     
